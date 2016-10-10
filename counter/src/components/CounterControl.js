@@ -32,10 +32,6 @@ class CounterControl extends React.Component {
   }
 }
 
-CounterControl.contextTypes = {
-  store: React.PropTypes.object
-}
-
 const mapDispatchToProps = (dispatch) => ({
   increaseCounter: bindActionCreators(increaseCounter, dispatch),
   decreaseCounter: bindActionCreators(decreaseCounter, dispatch),
