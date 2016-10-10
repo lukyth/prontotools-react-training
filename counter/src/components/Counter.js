@@ -1,19 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import CounterControl from './CounterControl.js'
 
 class Counter extends React.Component {
-  componentDidMount() {
-    this.unsubscribe = this.context.store.subscribe(() => {
-      this.forceUpdate()
-    })
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe()
-  }
-
   render() {
-    const counter = this.context.store.getState()
+    const counter = this.props.counter
     return (
       <div>
         <h1>Counter: {counter}</h1>
@@ -23,8 +14,8 @@ class Counter extends React.Component {
   }
 }
 
-Counter.contextTypes = {
-  store: React.PropTypes.object
-}
+const mapStoreStateToProps = (state) => ({
+  counter: state
+})
 
-export default Counter
+export default connect(mapStoreStateToProps)(Counter)
