@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Provider from './components/Provider'
 import App from './App';
 import './index.css';
 
@@ -13,6 +14,8 @@ const store = createStore(
 )
 
 ReactDOM.render(
-  <App store={store} />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
