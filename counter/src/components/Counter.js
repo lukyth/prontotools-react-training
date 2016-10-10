@@ -24,7 +24,7 @@ class Counter extends React.Component {
 }
 
 const mapStoreStateToProps = (state) => ({
-  counter: state
+  counter: state.counter
 })
 
 const mapDispatchToProps = (dispatch) => ({
